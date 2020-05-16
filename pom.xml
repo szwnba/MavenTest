@@ -3,10 +3,39 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+<!--    <parent>-->
+<!--        <artifactId>ParentPOM</artifactId>-->
+<!--        <groupId>com.maventest</groupId>-->
+<!--        <version>1.0-SNAPSHOT</version>-->
+<!--    </parent>-->
     <groupId>com.maventest</groupId>
     <artifactId>MavenTest</artifactId>
+    <packaging>pom</packaging>
     <version>1.01-SNAPSHOT</version>
+    <modules>
+        <module>submodule</module>
+        <module>sub</module>
+    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.maventest</groupId>
+            <artifactId>ParentPOM</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
+
+    <distributionManagement>
+        <repository>
+                <id>central</id>
+                <name>central-releases</name>
+                <url>http://47.98.172.161:8081/artifactory/libs-release-local</url>
+            </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>snapshots-snapshots</name>
+            <url>http://47.98.172.161:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
