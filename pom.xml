@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.maventest</groupId>
             <artifactId>ParentPOM</artifactId>
-            <version>1.02</version>
+            <version>1.03</version>
         </dependency>
     </dependencies>
 
