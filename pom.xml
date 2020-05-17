@@ -10,12 +10,7 @@
 <!--    </parent>-->
     <groupId>com.maventest</groupId>
     <artifactId>MavenTest</artifactId>
-    <packaging>pom</packaging>
-    <version>1.01-SNAPSHOT</version>
-    <modules>
-        <module>submodule</module>
-        <module>sub</module>
-    </modules>
+    <version>1.03-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>com.maventest</groupId>
@@ -24,6 +19,43 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <profile.env>dev</profile.env>
+            </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        </profile>
+        <profile>
+            <id>pro</id>
+            <properties>
+                <profile.env>pro</profile.env>
+            </properties>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <profile.env>test</profile.env>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <excludes>
+                    <exclude>conf/**</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources/conf/${profile.env}</directory>
+            </resource>
+        </resources>
+    </build>
 
     <distributionManagement>
         <repository>
