@@ -10,12 +10,12 @@
 <!--    </parent>-->
     <groupId>com.maventest</groupId>
     <artifactId>MavenTest</artifactId>
-    <version>1.03-SNAPSHOT</version>
+    <version>1.04</version>
     <dependencies>
         <dependency>
             <groupId>com.maventest</groupId>
             <artifactId>ParentPOM</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.02</version>
         </dependency>
     </dependencies>
 
@@ -55,6 +55,17 @@
                 <directory>src/main/resources/conf/${profile.env}</directory>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.1</version>
+                <configuration>
+<!--                    <includes>-->
+<!--                        <include>**/*Test.java</include>-->
+<!--                    </includes>-->
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <distributionManagement>
