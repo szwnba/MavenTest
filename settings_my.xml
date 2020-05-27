@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <!-- <localRepository> -->
+		<!-- G:\Github\repository -->
+    <!-- </localRepository> -->
+
+		<localRepository>
+        C:\Users\Administrator\.m2\repository
+    </localRepository>
+
+	
+    <pluginGroups></pluginGroups>
+
+    <proxies></proxies>
+
+<servers>    
+	 <server>
+      <username>admin</username>
+      <password>982128</password>
+      <id>mycentral</id>
+    </server>
+    <server>
+      <username>admin</username>
+      <password>982128</password>
+      <id>snapshots</id>
+    </server>
+	<server>
+      <username>admin</username>
+      <password>982128</password>
+      <id>myrepro</id>
+    </server>
+  </servers>
+
+    <mirrors>
+        <mirror> 
+            <id>alimaven</id>
+            <name>aliyun maven</name> 
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url> 
+            <mirrorOf>central,!mycentral,!snapshots</mirrorOf> 
+            </mirror> 
+    </mirrors>
+
+      <profiles>
+    <profile>
+      <repositories>
+	  <repository>       
+          <id>myrepro</id>
+          <name>MyRepo</name>
+          <url>http://47.98.172.161:8081/artifactory/MyRepo</url>
+        </repository>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>mycentral</id>
+          <name>libs-release</name>
+          <url>http://47.98.172.161:8081/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>http://47.98.172.161:8081/artifactory/libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>mycentral</id>
+          <name>plugins-release</name>
+          <url>http://47.98.172.161:8081/artifactory/plugins-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>plugins-snapshot</name>
+          <url>http://47.98.172.161:8081/artifactory/plugins-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+  </activeProfiles>
+</settings>
